@@ -7,23 +7,23 @@
 
 
 ## 1. Быстрый старт (установка за 2 минуты)
-
 ### Требования к серверу / виртуальной машине
 - **ОС:** Ubuntu 22.04 / 24.04, Debian 11 / 12, Rocky Linux 8 / 9, AlmaLinux, CentOS, RHEL
 - **Ресурсы:** 2 vCPU, 2–4 GB RAM, 20 GB Disk
 - **Сеть:** сетевая доступность между KMS-сервером и управляющим портом Huawei Dorado по порту `5696/tcp`, доступ в интернет на время установки
-
 ### Запуск установки
-Скопируйте `install.sh` на сервер и выполните:
+1. Скопируйте `install.sh` на сервер:
+curl -fsSL https://raw.githubusercontent.com/romanov4work/dorado-kmip/refs/heads/main/install.sh -o install.sh || wget -qO install.sh https://raw.githubusercontent.com/romanov4work/dorado-kmip/refs/heads/main/install.sh
+2. Выполните:
 ```bash
 bash install.sh
 ```
 Скрипт автоматически определит основной IP-адрес сервера и пропишет его в сертификаты.
-
 Если на сервере несколько сетевых интерфейсов и нужно привязать сертификат к конкретному IP-адресу, укажите его параметром:
 ```bash
 bash install.sh 192.168.1.100
 ```
+
 
 ### Что скрипт делает автоматически
 1. Устанавливает Docker и необходимые системные утилиты (если их еще нет)
